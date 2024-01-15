@@ -1,0 +1,123 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <form id="myForm">
+
+    name:
+    <input type="text" id="name">
+    email:
+    <input type="email" id="email">
+    <button type="submit">submit</button>
+    </form>
+    <div id="output"></div>
+    <button id="edit">Edit</button>
+    <script>
+    document.getElementById("myForm").addEventListener("submit",function(event){
+        event.preventDefault(); // Prevent the form from submitting normally.
+  //value milega name mai
+        let name=document.getElementById("name").value;
+       
+        let email=document.getElementById("email").value;
+      //emai or name input k phla name or email show karna k lia
+
+        let editButton=document.getElementById("edit");
+
+
+
+       //web page mai show karna klia data
+       let newData=document.createElement("p");
+       //append karenga data taki page mai show ho
+        newData.innerHTML="name"+name + "email" + email;
+        //append new data
+         document.getElementById("output").appendChild(newData);     
+       //data clear karenga taki or data web pages mai show ho
+        document.getElementById("name").value="";
+      document.getElementById("email").value="";
+
+      editButton.addEventListener("click",function(){
+        
+      })
+   
+   
+   
+    })
+
+
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form id="myForm">
+        Name:
+        <input type="text" id="name">
+        Email:
+        <input type="email" id="email">
+        <button type="submit">Submit</button>
+    </form>
+    <div id="entries"></div>
+
+    <script>
+        const entriesDiv = document.getElementById("entries");
+
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally.
+
+            // Retrieve the values of the name and email fields.
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+
+            // Create a container for the entry.
+            let entryContainer = document.createElement("div");
+
+            // Display the input data in the entry container.
+            let entryData = document.createElement("p");
+            entryData.innerHTML = "Name: " + name + "<br>Email: " + email;
+            entryContainer.appendChild(entryData);
+
+            // Create an "Edit" button for this entry.
+            let editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.addEventListener("click", function() {
+                // Populate the form fields with the data from this entry.
+                document.getElementById("name").value = name;
+                document.getElementById("email").value = email;
+            });
+            entryContainer.appendChild(editButton);
+
+            // Append the entry container to the entries div.
+            entriesDiv.appendChild(entryContainer);
+
+            // Clear the input fields after submission.
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+         // Make an Axios GET request to your API endpoint
+         axios.get('https://crudcrud.com/api/f6873df425d24a359e72083c9628d731/appointdata')
+                .then(response => {
+                    // Handle the response data here
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    // Handle any errors here
+                    console.error(error);
+                });
+        
+        });
+    </script>
+</body>
+</html>

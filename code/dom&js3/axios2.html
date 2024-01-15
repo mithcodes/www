@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios Example</title>
+</head>
+<body>
+    <h1>Fetching and Deleting Data with Axios from CRUD CRUD API</h1>
+    <div id="output"></div>
+
+    <!-- Include Axios library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        // Function to fetch data and display it
+        function fetchData() {
+            axios.get('https://crudcrud.com/api/f6873df425d24a359e72083c9628d731/appointdata')
+                .then(function (response) {
+                    // Handle the successful response
+                    const data = response.data;
+                    const output = document.getElementById('output');
+                    output.innerHTML = '';
+
+                    // Display user details and add delete buttons
+                    data.forEach(function (user) {
+                        const userDetail = document.createElement('div');
+                        userDetail.innerHTML = `
+                            <p>Name: ${user.name}</p>
+                            <p>Email: ${user.email}</p>
+                            <button onclick="deleteUser('${user._id}')">Delete</button>
+                        `;
+                        output.appendChild(userDetail);
+                    });
+                })
+                .catch(function (error) {
+                    // Handle any errors that occurred during the request
+                    console.error('Error:', error);
+                });
+        }
+
+        // Function to delete a user by _id
+        function deleteUser(userId) {
+            axios.delete(`https://crudcrud.com/api/f6873df425d24a359e72083c9628d731/appointdata/${userId}`)
+                .then(function (response) {
+                    // Handle the successful deletion
+                    console.log('User deleted:', response.data);
+
+                    // Refresh the displayed user data
+                    fetchData();
+                })
+                .catch(function (error) {
+                    // Handle any errors that occurred during the delete request
+                    console.error('Error:', error);
+                });
+        }
+
+        // Initial data fetch
+        fetchData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+#outer{
+    font-size:25px;
+
+}
+div{
+    /* sara content ka pass width height border border k widh or border k style paging margin hota haan or kai parkar k chiz hota haan */
+
+   /* height of content */
+    height:100px;
+    /* width of content */
+    width: 100px;
+
+    background-color: red;
+    border-color:rgb(14, 5, 5);
+    border-width: 200px;
+    border-style:solid;
+    border-style:dotted;
+    /* jab hama border ksara chij ek sath likhna ho */
+    /* border:2px solid black */
+    /* jab border k corner ko gl karna ho */
+    /* border: radius 50px; */
+}

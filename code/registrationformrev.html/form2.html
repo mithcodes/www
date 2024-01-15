@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION FORM</title>
+    <link rel="stylesheet" href="form2.css">
+</head>
+<body>
+<form>
+    <div class="container">
+    <fieldset>
+        <legend><b>enquiry</b></legend>
+        <h1>Enquiry</h1>
+        name: <input type="text" placeholder="please enter your name" required=""maxlength="50"/>
+   <br/>
+   <br/>
+   Disclaimer:<input type="text"value="readonly" readonly=""/>
+   <br/>
+   <br/>
+   Address:<textarea></textarea>
+   <br/>
+   <br/>
+   gender:
+   <input type="radio" value="m" name="gender" checked=""/>male
+   <input type="radio" value="f" name="gender"/>female
+   <input type="radio" value="o" name="gender"/>others
+   <br/>
+   <br/>
+   country:<select>
+    <option>pelease select your country</option>
+    <optgroup label="africa">
+        <option value="india">uganda</option>
+        <option value="india">somalia</option>
+        <option value="india">papuea guinia</option>
+    </optgroup>
+    <optgroup label="asia">
+        <option>india</option>
+        <option>china</option>
+        <option>thialnad</option>
+    </optgroup>
+   </select>
+   <br/>
+   <br/>
+   <br/>
+   hobbies:
+   <input type="checkbox" name="hobbies">dancing
+   <input type="checkbox" name="hobbies">cooking
+   <input type="checkbox" name="hobbies">playing
+    <br/>
+    <br/>
+    <br/>
+    image:
+    <input type="file" name="image"/>
+    <br/>
+    <br/>
+    email:
+    <input type="email" name="email" required=""/>
+    <br/>
+    <br/>
+    password:
+    <input type="password" anme="password"/>
+    <br/>
+    <br/>
+    age:
+    <input type="number" name="age" main="1" max="26"/>
+    <br/>
+    <br/>
+    secret:
+    <input type="hidden" name="secret"/>
+    <br/>
+    <br/>
+    range:
+    <input type="range" name="range" min="100" max="10000" value="4000"/>
+    <br/>
+    <br/>
+    <input type="submit" value="send"/>
+    <input type="reset" value="reset"/>
+    
+    </fieldset>
+</form>
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,10 @@
+let age="singh";
+console.log(typeof age);
+age=+"age";
+console.log(typeof age);
+age=String(age);
+console.log(typeof age);
+age=parseInt(age);
+console.log(typeof age);
+age=age+" ";
+console.log(typeof age);

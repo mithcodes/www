@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios Example</title>
+</head>
+<body>
+    <h1>Fetching Data with Axios from CRUD CRUD API</h1>
+    <div id="output"></div>
+
+    <!-- Include Axios library -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        // Make a GET request to the CRUD CRUD API
+        axios.get('https://crudcrud.com/api/f6873df425d24a359e72083c9628d731/appointdata')
+            .then(function (response) {
+                // Handle the successful response
+                const data = response.data;
+                const output = document.getElementById('output');
+                output.innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(function (error) {
+                // Handle any errors that occurred during the request
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>
